@@ -63,13 +63,13 @@ const InvoiceCard = () => {
       </Flex>
       <Flex direction="row" gap="4">
         <Flex className="invoice-icons" justify="center" align="center">
-          <EyeOpenIcon height={20} width={20} color="green" />
+          <EyeOpenIcon height={20} width={20} color="green" className="icon" />
         </Flex>
         <Flex className="invoice-icons" justify="center" align="center">
-          <Pencil2Icon height={20} width={20} color="green" />
+          <Pencil2Icon height={20} width={20} color="green" className="icon" />
         </Flex>{" "}
         <Flex className="invoice-icons" justify="center" align="center">
-          <TrashIcon height={20} width={20} color="red" />
+          <TrashIcon height={20} width={20} color="red" className="icon" />
         </Flex>
       </Flex>
     </Flex>

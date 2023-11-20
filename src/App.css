@@ -135,4 +135,14 @@ a {
   padding: var(--space-2, 8px);
   background: var(--grays-gray-7, #4a4a4a);
   border-radius: var(--radius-5-max, 999px);
+
+  &:hover {
+    background: var(--grays-gray-10, #818181);
+  }
+}
+
+.icon {
+  &:hover {
+    color: var(--semantic-colors-success-10, red);
+  }
 }
