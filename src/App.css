@@ -31,7 +31,6 @@ a {
 .heading {
   color: var(--default-colors-white, #fff);
   /* Typography/8/Medium */
-  font-family: SF Pro;
   font-size: 35px;
   font-style: normal;
   font-weight: 510;
@@ -42,7 +41,6 @@ a {
 .card-title {
   color: var(--grays-gray-10, #818181);
   /* Text/5/400 */
-  font-family: SF Pro;
   font-size: 19px;
   font-style: normal;
   font-weight: 400;
@@ -51,7 +49,6 @@ a {
 
 .card-value {
   color: var(--default-colors-white, #fff);
-  font-family: SF Pro;
   /* font-size: 35px; */
   font-style: normal;
   font-weight: 510;
