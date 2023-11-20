@@ -52,7 +52,7 @@ const Dashboard = ({ user }) => {
           marginBottom: "8px",
         }}
       />
-      <Flex direction="column" align="start" gap="4" px="6" py="9">
+      <Flex direction="column" align="start" gap="4" px="2" py="9">
         <Text className="heading">Hi {user.displayName.split(" ")[0]}</Text>
         <Separator
           orientation="horizontal"
