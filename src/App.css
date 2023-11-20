@@ -1,6 +1,29 @@
 #root {
   max-width: 1280px;
+  /* height: 100vh; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: aliceblue;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  background-image: url("https://github.com/uxderrick/Waavify/blob/main/src/assets/bg-image.jpeg?raw=true");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+  cursor: pointer;
+
+  &:hover {
+    color: #30a46c;
+  }
 }
