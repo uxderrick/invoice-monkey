@@ -13,30 +13,13 @@ const LandingPage = () => {
             color: "white",
           }}
         >
-          <Flex direction="column" gap="9" align={"center"}>
+          <Flex direction="column" gap="5" align={"center"}>
             {/* logo */}
             <img
               className="container"
               src="https://s3-alpha-sig.figma.com/img/4526/e058/cad082685a014d18b93e42c167e74cba?Expires=1701648000&Signature=M9pvUTzca-hzOX~sXtt~302dtmA9VS-DvMEUeEZOIHKw2zAh0qdBdNAYfKwxctwygbsRWP62mRH3PGHyMYoxCJPEFGqne5aslG2VDU3gWdAXu3F1qfm5DRmkgBs2SqVqokfDD6ojcWhzZoAjGSu9JOaRY5z6xslRvpMbp8qR4rBlME~pUsoGpEXnSh63A2yglS5HVpwgy~csBNshTKKCrj2pfZ9rfoDOu5Rw9Ipa2SNJ0Ooj-nRXIuvQ7ksdtKrmIRPpyp6mB3j7tXd-h~nw0FqYuc5ajpFl5HsC~orpPfYekN9RTo4yakxsXw7v8XwrtT6wR3711YI-5JQ~Gskqmg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
               height={160}
             ></img>
-
-            {/* GitHub Logo */}
-            <a href="">
-              <img
-                height={10}
-                src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
-                style={{
-                  width: "3rem",
-                  height: "3rem",
-                  marginTop: "1rem",
-                  position: "absolute",
-                  right: "0",
-                  top: "2.5rem",
-                  borderRadius: "50%",
-                }}
-              ></img>
-            </a>
 
             {/* Title block */}
             <Flex
@@ -55,20 +38,27 @@ const LandingPage = () => {
                   sm: "9",
                   xl: "9",
                 }}
+                style={{
+                  lineHeight: "4.5rem",
+                }}
               >
                 Create, print, and email an invoice in
                 <Text
                   style={{
                     color: "var(--colors-green-9, #30A46C",
-                    lineHeight: "5.5rem",
+                    lineHeight: "4.5rem",
                   }}
                 >
-                  {" "}
-                  3 minutes
+                  <> </>3 minutes
                 </Text>
               </Heading>
               <Text
-                size="8"
+                size={{
+                  initial: "6",
+                  md: "6",
+                  sm: "8",
+                  xl: "8",
+                }}
                 align="center"
                 style={{
                   color: "var(--grays-gray-10, #818181)",
