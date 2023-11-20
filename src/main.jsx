@@ -9,8 +9,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Theme
       accentColor="green"
-      grayColor="sand"
-      radius="large"
+      // grayColor="sand"
+      // radius="large"
       scaling="95%"
       appearance="dark"
     >
