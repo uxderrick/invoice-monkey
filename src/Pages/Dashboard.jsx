@@ -27,7 +27,7 @@ const Dashboard = ({ user }) => {
       </Text> */}
       <Flex direction="row" align="center" justify="between">
         <img
-          src="src/assets/logo.svg"
+          src="https://raw.githubusercontent.com/uxderrick/invoice-monkey/3c1bdf204fcc2740c251c4908b75687fa9a0ea5a/src/assets/logo.svg"
           // height={160}
           //
         ></img>
