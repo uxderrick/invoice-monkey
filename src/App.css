@@ -31,7 +31,6 @@ a {
 .heading {
   color: var(--default-colors-white, #fff);
   /* Typography/8/Medium */
-  font-size: 35px;
   font-style: normal;
   font-weight: 510;
   line-height: 40px; /* 114.286% */

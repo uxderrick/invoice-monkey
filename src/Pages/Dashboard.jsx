@@ -13,7 +13,7 @@ import CreateInvoice from "../components/CreateInvoice";
 import InvoiceCard from "../components/InvoiceCard";
 
 const Dashboard = ({ user }) => {
-  document.body.style.padding = "0 8px 0 8px";
+  document.body.style.padding = "0 16px 0 16px";
 
   return (
     <>
@@ -25,6 +25,7 @@ const Dashboard = ({ user }) => {
         <Flex gap="5" align="center">
           <Avatar radius="full" src={user.photoURL} size="2"></Avatar>
           <Button
+            variant="outline"
             onClick={() => {
               signOutWithGoogle();
             }}
@@ -56,10 +57,20 @@ const Dashboard = ({ user }) => {
           xl: 7,
         }}
       >
-        <Text className="heading">Hi {user.displayName.split(" ")[0]}</Text>
+        <Text
+          className="heading"
+          size={{
+            initial: 6,
+            sm: 6,
+            md: 8,
+            lg: 8,
+            xl: 8,
+          }}
+        >
+          Hi {user.displayName.split(" ")[0]}
+        </Text>
         <Separator
           orientation="horizontal"
-          size="4"
           style={{
             background: "#262626",
             width: "100%",
@@ -143,7 +154,7 @@ const Dashboard = ({ user }) => {
             background: "#262626",
             width: "100%",
             marginTop: "8px",
-            marginBottom: "16px",
+            marginBottom: "8px",
           }}
         />
         <Flex wrap="wrap" direction="row" gap="5">
