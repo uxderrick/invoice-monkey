@@ -1,5 +1,6 @@
-import { Heading, Text, Flex, Box, Button, Em } from "@radix-ui/themes";
-import React, { useEffect } from "react";
+import { Heading, Text, Flex, Box, Button } from "@radix-ui/themes";
+import React from "react";
+import { signInWithGoogle, useAuth } from "../Firebase";
 
 const LandingPage = () => {
   //
@@ -72,8 +73,9 @@ const LandingPage = () => {
                 style={{
                   marginTop: "1rem",
                 }}
+                onClick={signInWithGoogle}
               >
-                Login with Google
+                Sign in with Google
               </Button>
             </Flex>
           </Flex>
