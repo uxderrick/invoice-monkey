@@ -10,6 +10,7 @@ import {
 } from "@radix-ui/themes";
 import { signOutWithGoogle } from "../Firebase";
 import CreateInvoice from "../components/CreateInvoice";
+import InvoiceCard from "../components/InvoiceCard";
 
 const Dashboard = ({ user }) => {
   document.body.style.padding = "0 8px 0 8px";
@@ -100,7 +101,7 @@ const Dashboard = ({ user }) => {
           </Flex>
           <Flex direction="column" align="start" className="card">
             <Text className="card-title" align="left">
-              Total Received
+              Total Pending
             </Text>
             <Text
               className="card-value"
@@ -118,7 +119,7 @@ const Dashboard = ({ user }) => {
           </Flex>
           <Flex direction="column" align="start" className="card">
             <Text className="card-title" align="left">
-              Total Received
+              Number of customers
             </Text>
             <Text
               className="card-value"
@@ -131,7 +132,7 @@ const Dashboard = ({ user }) => {
                 xl: 8,
               }}
             >
-              GHS 67,000.00
+              5
             </Text>
           </Flex>
         </Flex>
@@ -145,7 +146,15 @@ const Dashboard = ({ user }) => {
             marginBottom: "16px",
           }}
         />
-        <Flex wrap="wrap" direction="row" gap="4"></Flex>
+        <Flex wrap="wrap" direction="row" gap="5">
+          <CreateInvoice />
+          <InvoiceCard />
+          <InvoiceCard />
+          <InvoiceCard />
+          <InvoiceCard />
+          <InvoiceCard />
+          <InvoiceCard />
+        </Flex>
       </Flex>
     </>
   );
