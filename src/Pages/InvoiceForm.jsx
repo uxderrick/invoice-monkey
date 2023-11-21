@@ -10,7 +10,6 @@ import {
   TextField,
 } from "@radix-ui/themes";
 import { signOutWithGoogle } from "../Firebase";
-import * as Progress from "@radix-ui/react-progress";
 
 const InvoiceForm = () => {
   document.body.style.padding = "0 16px 0 16px";
