@@ -3,6 +3,7 @@ import LandingPage from "./Pages/LandingPage";
 import Dashboard from "./Pages/Dashboard";
 import { useAuth } from "./Firebase";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import InvoiceForm from "./Pages/InvoiceForm";
 
 //BODY//////////////////////////////////////////////
 function App() {
@@ -11,7 +12,7 @@ function App() {
   document.body.style.padding = "0";
 
   const user = useAuth();
-  user ? console.log("user") : console.log("no user");
+  // user ? console.log("user") : console.log("no user");
 
   //UI
   return (
@@ -29,6 +30,7 @@ function App() {
             }
           ></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+          <Route path="/new" element={<InvoiceForm></InvoiceForm>}></Route>
         </Routes>
       </BrowserRouter>
     </>
