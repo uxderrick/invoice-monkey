@@ -29,7 +29,7 @@ const provider = new GoogleAuthProvider();
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result.user);
+      // console.log(result.user);
       window.localStorage.setItem("token", result.user.accessToken);
     })
     .catch((error) => {
@@ -53,7 +53,7 @@ export const useAuth = () => {
 export const signOutWithGoogle = () => {
   signOut(auth)
     .then(() => {
-      console.log("signed out");
+      // console.log("signed out");
     })
     .catch((error) => {
       console.log(error);
