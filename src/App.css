@@ -146,3 +146,28 @@ a {
     color: var(--semantic-colors-success-10, red);
   }
 }
+
+.question {
+  color: var(--grays-gray-10, #818181);
+
+  /* Typography/8/Medium */
+  font-style: normal;
+  font-weight: 510;
+  line-height: 40px; /* 114.286% */
+  letter-spacing: -0.16px;
+}
+
+.question-field {
+  height: var(--space-9, 64px);
+  font-size: 24px;
+  border-radius: 40px;
+  margin: 8px 16px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .question-field {
+    font-size: 16px;
+    margin: 0px 8px;
+  }
+}
