@@ -30,7 +30,10 @@ function App() {
             }
           ></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-          <Route path="/new" element={<InvoiceForm></InvoiceForm>}></Route>
+          <Route
+            path="/new"
+            element={<InvoiceForm user={user}></InvoiceForm>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
