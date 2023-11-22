@@ -11,42 +11,14 @@ import {
 import { signOutWithGoogle } from "../Firebase";
 import CreateInvoice from "../components/CreateInvoice";
 import InvoiceCard from "../components/InvoiceCard";
+import NavBar from "../components/NavBar";
 
 const Dashboard = ({ user }) => {
   document.body.style.padding = "0 16px 0 16px";
 
   return (
     <>
-      <Flex direction="row" align="center" justify="between">
-        <img
-          src="https://raw.githubusercontent.com/uxderrick/invoice-monkey/3c1bdf204fcc2740c251c4908b75687fa9a0ea5a/src/assets/logo.svg"
-          onClick={() => {
-            window.location.href = "/";
-          }}
-          //
-        ></img>
-        <Flex gap="5" align="center">
-          <Avatar radius="full" src={user.photoURL} size="2"></Avatar>
-          <Button
-            variant="outline"
-            onClick={() => {
-              signOutWithGoogle();
-            }}
-          >
-            Sign out
-          </Button>
-        </Flex>
-      </Flex>
-      <Separator
-        orientation="horizontal"
-        size="4"
-        style={{
-          background: "#262626",
-          width: "100%",
-          marginTop: "8px",
-          marginBottom: "8px",
-        }}
-      />
+      <NavBar user={user}></NavBar>
       <Flex
         direction="column"
         align="start"
