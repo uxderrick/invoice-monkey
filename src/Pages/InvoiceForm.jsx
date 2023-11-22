@@ -7,12 +7,23 @@ import {
   Button,
   Avatar,
   Separator,
+  Popover,
   TextField,
 } from "@radix-ui/themes";
 import { signOutWithGoogle } from "../Firebase";
+import { useState } from "react";
+import Question1 from "../components/Question1";
+import Question2 from "../components/Question2";
+import Question3 from "../components/Question3";
+import Question4 from "../components/Question4";
 
 const InvoiceForm = () => {
-  document.body.style.padding = "0 16px 0 16px";
+  const [date, setDate] = useState("");
+
+  const handleQuestion2NextClick = () => {
+    //TODO: Do something with the information from Question2
+    console.log("Date from Question2:", date);
+  };
 
   return (
     <>
@@ -46,80 +57,51 @@ const InvoiceForm = () => {
           marginBottom: "8px",
         }}
       />
+
+      {/*  */}
       <Flex
+        className="all-question-container"
         direction="row"
-        gap="6"
-        justify="center"
+        wrap="wrap"
+        justify="between"
         style={{
-          marginTop: "60px",
-          //   maxWidth: "600px",
+          width: "100%",
         }}
       >
         <Flex
+          className="form-container"
           direction="column"
-          gap={{
-            initial: 4,
-            sm: 4,
-            md: 4,
-            lg: 6,
+          gap="6"
+          justify="center"
+          style={{
+            marginTop: "60px",
+            maxWidth: "560px",
           }}
+          px="3"
         >
-          <Text
-            className="question"
-            size={{
-              initial: 8,
-              sm: 8,
-              md: 9,
-              lg: 9,
-              xl: 9,
-            }}
-            weight="medium"
-            align="left"
-          >
-            Who are you issuing this invoice to?
-          </Text>
-          <TextField.Input
-            radius="large"
-            size="4"
-            placeholder="Customer name"
-            className="question-field"
-          />
-          <TextField.Input
-            radius="large"
-            size="4"
-            placeholder="Customer name"
-            className="question-field"
-          />
-          <Flex
-            gap="4"
-            style={{
-              width: "100%",
-            }}
-          >
-            <Button
-              size="4"
-              radius="none"
-              variant="outline"
-              style={{
-                color: "#818181",
-                border: "1px solid #818181",
-                height: "64px",
-              }}
-            >
-              Back
-            </Button>
-            <Button
-              size="4"
-              radius="none"
-              style={{
-                height: "64px",
-                // minWidth: "240px",
-              }}
-            >
-              Next
-            </Button>
-          </Flex>
+          {/* Questions */}
+          <Question1></Question1>
+          <Question2
+            dueDate={date}
+            onDateChange={setDate}
+            onQuestion2NextClick={handleQuestion2NextClick}
+          ></Question2>
+          <Question3></Question3>
+          <Question4></Question4>
         </Flex>
+        {/* //TODO: Add the right side */}
+        {/* Right side */}
+        <Flex
+          className="right-side"
+          gap="4"
+          style={{
+            marginTop: "60px",
+            width: "600px",
+            height: "600px",
+            background: "#262626",
+          }}
+          px="3"
+        ></Flex>
       </Flex>
     </>
   );
