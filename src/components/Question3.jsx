@@ -9,9 +9,32 @@ import {
   Separator,
   Popover,
   TextField,
+  TextFieldSlot,
+  TextFieldRoot,
 } from "@radix-ui/themes";
 
-const Question3 = () => {
+const Question3 = ({
+  onQuestion3NextClick,
+  updateItemInfo,
+  updatedItemName,
+  updatedItemDescription,
+  updatedQuantity,
+  updatedCost,
+}) => {
+  const [quantity, setQuantity] = useState(updatedQuantity || 1);
+  const [cost, setCost] = useState(updatedCost || 0);
+  const [itemName, setItemName] = useState(updatedItemName || "");
+  const [itemDescription, setItemDescription] = useState(
+    updatedItemDescription || ""
+  );
+
+  const handleNextClick = () => {
+    // Call the function passed as a prop to update the state in InvoiceForm
+    updateItemInfo(itemName, itemDescription, quantity, cost);
+    // Call the original onQuestion1NextClick function
+    onQuestion3NextClick();
+  };
+
   return (
     <>
       {/* //////////////////////////////////////////////// */}
@@ -43,21 +66,79 @@ const Question3 = () => {
           size="4"
           placeholder="Item name"
           className="question-field"
+          value={itemName}
+          onChange={(e) => {
+            setItemName(e.target.value);
+          }}
         />
+
+        <TextFieldRoot>
+          <TextField.Slot>
+            <Text
+              size={{
+                initial: 4,
+                sm: 5,
+                md: 5,
+                lg: 5,
+                xl: 5,
+              }}
+              style={{
+                marginLeft: "10px",
+                color: "#818181",
+                width: "100%",
+              }}
+            >
+              Item Quantity
+            </Text>
+          </TextField.Slot>
+          <TextField.Input
+            size="4"
+            placeholder="Item quantity"
+            className="question-field"
+            value={quantity}
+            onInput={(e) => {
+              setQuantity(e.target.value.replace(/[^0-9]/g, ""));
+            }}
+          />
+        </TextFieldRoot>
+
+        <TextFieldRoot>
+          <TextField.Slot>
+            <Text
+              size={{
+                initial: 4,
+                sm: 5,
+                md: 5,
+                lg: 5,
+                xl: 5,
+              }}
+              style={{
+                marginLeft: "10px",
+                color: "#818181",
+              }}
+            >
+              Item Cost
+            </Text>
+          </TextField.Slot>
+          <TextField.Input
+            size="4"
+            placeholder="Item cost"
+            className="question-field"
+            value={cost}
+            onInput={(e) => {
+              setCost(e.target.value.replace(/[^0-9]/g, ""));
+            }}
+          />
+        </TextFieldRoot>
         <TextField.Input
-          size="4"
-          placeholder="Item quantity"
-          className="question-field"
-        />
-        <TextField.Input
-          size="4"
-          placeholder="Item cost"
-          className="question-field"
-        />
-        <TextField.Input
+          value={itemDescription}
           size="4"
           placeholder="Item description"
           className="question-field"
+          onChange={(e) => {
+            setItemDescription(e.target.value);
+            // console.log(itemDescription);
+          }}
         />
         <Flex
           gap="4"
@@ -85,6 +166,7 @@ const Question3 = () => {
               height: "64px",
               width: "160px",
             }}
+            onClick={handleNextClick}
           >
             Next
           </Button>

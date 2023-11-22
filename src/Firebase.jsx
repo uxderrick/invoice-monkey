@@ -53,6 +53,7 @@ export const useAuth = () => {
 export const signOutWithGoogle = () => {
   signOut(auth)
     .then(() => {
+      
       // console.log("signed out");
     })
     .catch((error) => {

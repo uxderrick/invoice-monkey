@@ -25,11 +25,14 @@ function App() {
               user ? (
                 <Dashboard user={user}></Dashboard>
               ) : (
-                <LandingPage></LandingPage>
+                <LandingPage user={user}></LandingPage>
               )
             }
           ></Route>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+          <Route
+            path="/dashboard"
+            element={<Dashboard user={user}></Dashboard>}
+          ></Route>
           <Route
             path="/new"
             element={<InvoiceForm user={user}></InvoiceForm>}
