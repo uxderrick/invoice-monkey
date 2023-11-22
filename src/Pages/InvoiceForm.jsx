@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Heading,
   Text,
@@ -16,47 +16,68 @@ import Question1 from "../components/Question1";
 import Question2 from "../components/Question2";
 import Question3 from "../components/Question3";
 import Question4 from "../components/Question4";
+import NavBar from "../components/NavBar";
 
-const InvoiceForm = () => {
+const InvoiceForm = ({ user }) => {
   const [date, setDate] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [cost, setCost] = useState(0);
+  const [note, setNote] = useState("");
 
+  //Question 1 logic
+  const updateCustomerInfo = (updatedName, updatedEmail) => {
+    setName(updatedName);
+    setEmail(updatedEmail);
+  };
+
+  const handleQuestion1NextClick = () => {
+    //TODO: Do something with the information from Question1
+    console.log("Name from Question1:", name);
+    console.log("Email from Question1:", email);
+  };
+
+  //Question 2 logic
   const handleQuestion2NextClick = () => {
-    //TODO: Do something with the information from Question2
+    // TODO: Implement logic for Question 2
     console.log("Date from Question2:", date);
+  };
+
+  //Question 3 logic
+  const updateItemInfo = (
+    updatedItemName,
+    updatedItemDescription,
+    updatedQuantity,
+    updatedCost
+  ) => {
+    setItemName(updatedItemName);
+    setItemDescription(updatedItemDescription);
+    setQuantity(updatedQuantity);
+    setCost(updatedCost);
+  };
+  const handleQuestion3NextClick = () => {
+    //TODO: Do something with the information from Question3
+    console.log("Item name from Question3:", itemName);
+    console.log("Item description from Question3:", itemDescription);
+    console.log("Quantity from Question3:", quantity);
+    console.log("Cost from Question3:", cost);
+  };
+
+  //Question 4 logic
+  const updateNoteInfo = (updatedNote) => {
+    setNote(updatedNote);
+  };
+
+  const handleQuestion4NextClick = () => {
+    console.log("Note from Question4:", note);
   };
 
   return (
     <>
-      <Flex direction="row" align="center" justify="between" width="100%">
-        <img
-          src="https://raw.githubusercontent.com/uxderrick/invoice-monkey/3c1bdf204fcc2740c251c4908b75687fa9a0ea5a/src/assets/logo.svg"
-          //
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        ></img>
-        <Flex gap="5" align="center">
-          <Button
-            variant="outline"
-            onClick={() => {
-              signOutWithGoogle();
-              window.location.href = "/";
-            }}
-          >
-            Sign out
-          </Button>
-        </Flex>
-      </Flex>
-      <Separator
-        orientation="horizontal"
-        size="4"
-        style={{
-          background: "#262626",
-          width: "100%",
-          marginTop: "8px",
-          marginBottom: "8px",
-        }}
-      />
+      <NavBar user={user}></NavBar>
 
       {/*  */}
       <Flex
@@ -80,14 +101,31 @@ const InvoiceForm = () => {
           px="3"
         >
           {/* Questions */}
-          <Question1></Question1>
+          <Question1
+            customerName={name}
+            customerEmail={email}
+            onQuestion1NextClick={handleQuestion1NextClick}
+            updateCustomerInfo={updateCustomerInfo}
+          />
           <Question2
             dueDate={date}
             onDateChange={setDate}
             onQuestion2NextClick={handleQuestion2NextClick}
+            updateItemInfo={updateItemInfo}
           ></Question2>
-          <Question3></Question3>
-          <Question4></Question4>
+          <Question3
+            updatedItemName={itemName}
+            updatedItemDescription={itemDescription}
+            updatedQuantity={quantity}
+            updatedCost={cost}
+            onQuestion3NextClick={handleQuestion3NextClick}
+            updateItemInfo={updateItemInfo}
+          ></Question3>
+          <Question4
+            updatedNote={note}
+            onQuestion4NextClick={handleQuestion4NextClick}
+            updateNoteInfo={updateNoteInfo}
+          ></Question4>
         </Flex>
         {/* //TODO: Add the right side */}
         {/* Right side */}

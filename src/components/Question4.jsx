@@ -11,7 +11,16 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
-const Question4 = ({}) => {
+const Question4 = ({ updateNoteInfo, updatedNote, onQuestion4NextClick }) => {
+  const [note, setNote] = React.useState(updatedNote || "");
+
+  const handleNextClick = () => {
+    // Call the function passed as a prop to update the state in InvoiceForm
+    updateNoteInfo(note);
+    // Call the original onQuestion1NextClick function
+    onQuestion4NextClick();
+  };
+
   return (
     <>
       {/* //////////////////////////////////////////////// */}
@@ -40,10 +49,13 @@ const Question4 = ({}) => {
           Add a short note to the invoice.
         </Text>
         <TextField.Input
+          value={note}
           size="4"
           placeholder="Add a note"
           className="question-field"
-          onChange={() => {}}
+          onChange={() => {
+            setNote(event.target.value);
+          }}
         />
         <Flex
           gap="4"
@@ -71,6 +83,7 @@ const Question4 = ({}) => {
               height: "64px",
               width: "160px",
             }}
+            onClick={handleNextClick}
           >
             Submit
           </Button>
