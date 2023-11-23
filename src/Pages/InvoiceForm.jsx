@@ -10,7 +10,6 @@ import {
   Popover,
   TextField,
 } from "@radix-ui/themes";
-import { signOutWithGoogle } from "../Firebase";
 import { useState } from "react";
 import Question1 from "../components/Question1";
 import Question2 from "../components/Question2";

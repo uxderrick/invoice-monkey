@@ -6,10 +6,11 @@ import {
   signOut,
 } from "firebase/auth";
 import { useState } from "react";
+import { getFirestore } from "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCOwadFIXyThLpT-8GZiUtHr6ORoZHYS-A",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "invoice-monkey-ux.firebaseapp.com",
   projectId: "invoice-monkey-ux",
   storageBucket: "invoice-monkey-ux.appspot.com",
@@ -20,6 +21,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
@@ -53,7 +57,6 @@ export const useAuth = () => {
 export const signOutWithGoogle = () => {
   signOut(auth)
     .then(() => {
-      
       // console.log("signed out");
     })
     .catch((error) => {
