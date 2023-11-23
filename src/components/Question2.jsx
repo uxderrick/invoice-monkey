@@ -13,7 +13,12 @@ import {
 import Calendar from "react-calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 
-const Question2 = ({ dueDate, onDateChange, onQuestion2NextClick }) => {
+const Question2 = ({
+  dueDate,
+  onDateChange,
+  onQuestion2NextClick,
+  onQuestion2BackClick,
+}) => {
   const [date, setDate] = useState(new Date());
 
   function formatDateToDDMMYYYY(date) {
@@ -26,6 +31,11 @@ const Question2 = ({ dueDate, onDateChange, onQuestion2NextClick }) => {
 
     return `${formattedDay}/${formattedMonth}/${year}`;
   }
+
+  const handleBackClick = () => {
+    //go back to the previous page
+    onQuestion2BackClick();
+  };
   return (
     <>
       {/* //////////////////////////////////////////////// */}
@@ -119,6 +129,7 @@ const Question2 = ({ dueDate, onDateChange, onQuestion2NextClick }) => {
               height: "64px",
               width: "160px",
             }}
+            onClick={handleBackClick}
           >
             Back
           </Button>

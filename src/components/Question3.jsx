@@ -14,6 +14,7 @@ import {
 } from "@radix-ui/themes";
 
 const Question3 = ({
+  onQuestion3BackClick,
   onQuestion3NextClick,
   updateItemInfo,
   updatedItemName,
@@ -33,6 +34,11 @@ const Question3 = ({
     updateItemInfo(itemName, itemDescription, quantity, cost);
     // Call the original onQuestion1NextClick function
     onQuestion3NextClick();
+  };
+
+  const handleBackClick = () => {
+    //go back to the previous page
+    onQuestion3BackClick();
   };
 
   return (
@@ -156,6 +162,7 @@ const Question3 = ({
               height: "64px",
               width: "160px",
             }}
+            onClick={handleBackClick}
           >
             Back
           </Button>

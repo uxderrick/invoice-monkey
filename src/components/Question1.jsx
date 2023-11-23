@@ -27,6 +27,11 @@ const Question1 = ({
     onQuestion1NextClick();
   };
 
+  const handleBackClick = () => {
+    //go back to the previous page
+    window.history.back();
+  };
+
   return (
     <>
       {/* //////////////////////////////////////////////// */}
@@ -90,10 +95,7 @@ const Question1 = ({
               height: "64px",
               width: "160px",
             }}
-            onClick={() => {
-              //go back to the previous page
-              window.history.back();
-            }}
+            onClick={handleBackClick}
           >
             Back
           </Button>
