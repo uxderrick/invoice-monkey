@@ -113,7 +113,7 @@ const Confirmation = ({}) => {
             }}
             onClick={() => {
               //go back to dashboard
-              window.location.href = "/dashboard";
+              window.location.href = "/";
             }}
           >
             Return to dashboard
