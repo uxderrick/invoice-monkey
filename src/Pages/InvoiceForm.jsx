@@ -17,6 +17,7 @@ import Question2 from "../components/Question2";
 import Question3 from "../components/Question3";
 import Question4 from "../components/Question4";
 import NavBar from "../components/NavBar";
+import Confirmation from "../components/Confirmation";
 
 const InvoiceForm = ({ user }) => {
   const [date, setDate] = useState("");
@@ -126,6 +127,7 @@ const InvoiceForm = ({ user }) => {
             onQuestion4NextClick={handleQuestion4NextClick}
             updateNoteInfo={updateNoteInfo}
           ></Question4>
+          <Confirmation></Confirmation>
         </Flex>
         {/* //TODO: Add the right side */}
         {/* Right side */}

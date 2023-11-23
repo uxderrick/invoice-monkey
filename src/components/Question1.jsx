@@ -91,7 +91,6 @@ const Question1 = ({
               width: "160px",
             }}
             onClick={() => {
-              console.log("Back button clicked");
               //go back to the previous page
               window.history.back();
             }}
