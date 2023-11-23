@@ -11,7 +11,12 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
-const Question4 = ({ updateNoteInfo, updatedNote, onQuestion4NextClick }) => {
+const Question4 = ({
+  updateNoteInfo,
+  updatedNote,
+  onQuestion4NextClick,
+  onQuestion4BackClick,
+}) => {
   const [note, setNote] = React.useState(updatedNote || "");
 
   const handleNextClick = () => {
@@ -19,6 +24,11 @@ const Question4 = ({ updateNoteInfo, updatedNote, onQuestion4NextClick }) => {
     updateNoteInfo(note);
     // Call the original onQuestion1NextClick function
     onQuestion4NextClick();
+  };
+
+  const handleBackClick = () => {
+    //go back to the previous page
+    onQuestion4BackClick();
   };
 
   return (
@@ -73,6 +83,7 @@ const Question4 = ({ updateNoteInfo, updatedNote, onQuestion4NextClick }) => {
               height: "64px",
               width: "160px",
             }}
+            onClick={handleBackClick}
           >
             Back
           </Button>

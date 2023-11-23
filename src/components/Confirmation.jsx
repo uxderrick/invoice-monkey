@@ -78,7 +78,6 @@ const Confirmation = ({}) => {
             radius="none"
             style={{
               height: "64px",
-              //   width: "160px",
             }}
             onClick={handleNextClick}
           >
@@ -92,12 +91,9 @@ const Confirmation = ({}) => {
               color: "#818181",
               border: "1px solid #818181",
               height: "64px",
-              //   width: "160px",
             }}
             onClick={() => {
-              console.log("Back button clicked");
-              //go back to the previous page
-              window.history.back();
+              //TODO: Download as PDF
             }}
           >
             Download as PDF
@@ -109,10 +105,8 @@ const Confirmation = ({}) => {
             style={{
               color: "#818181",
               height: "64px",
-              //   width: "160px",
             }}
             onClick={() => {
-              //go back to dashboard
               window.location.href = "/";
             }}
           >
