@@ -35,6 +35,27 @@ const Question1 = ({
   return (
     <>
       {/* //////////////////////////////////////////////// */}
+      {/* Separator */}
+      <div
+        style={{
+          width: "140px",
+          height: "2px",
+          backgroundColor: "#299764",
+          marginTop: "24px",
+          marginBottom: "8px",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "2px",
+            maxWidth: "560px",
+            backgroundColor: "#757575",
+            position: "absolute",
+            zIndex: "-1",
+          }}
+        ></div>
+      </div>
       {/* Question 1 */}
       <Flex
         direction="column"
@@ -76,6 +97,7 @@ const Question1 = ({
           className="question-field"
           onChange={(event) => {
             setEmail(event.target.value);
+            console.log(event.target.value);
           }}
         />
 
