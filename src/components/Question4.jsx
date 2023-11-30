@@ -33,7 +33,28 @@ const Question4 = ({
 
   return (
     <>
-      {/* //////////////////////////////////////////////// */}
+      {/*////////////////////////////////////////////////*/}
+      {/* Separator */}
+      <div
+        style={{
+          width: "560px",
+          height: "2px",
+          backgroundColor: "#299764",
+          marginTop: "24px",
+          marginBottom: "8px",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "2px",
+            maxWidth: "560px",
+            backgroundColor: "#757575",
+            position: "absolute",
+            zIndex: "-1",
+          }}
+        ></div>
+      </div>
       {/* Question 1 */}
       <Flex
         direction="column"

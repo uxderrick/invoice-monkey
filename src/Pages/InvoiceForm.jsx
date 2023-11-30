@@ -17,6 +17,7 @@ import Question3 from "../components/Question3";
 import Question4 from "../components/Question4";
 import NavBar from "../components/NavBar";
 import Confirmation from "../components/Confirmation";
+import InvoicePreview from "../components/InvoicePreview";
 
 const InvoiceForm = ({ user }) => {
   const [date, setDate] = useState("");
@@ -159,6 +160,7 @@ const InvoiceForm = ({ user }) => {
         direction="row"
         wrap="wrap"
         justify="between"
+        align="start"
         style={{
           width: "100%",
         }}
@@ -169,7 +171,7 @@ const InvoiceForm = ({ user }) => {
           gap="6"
           // justify="center"
           style={{
-            marginTop: "60px",
+            marginTop: "40px",
             maxWidth: "560px",
           }}
           px="3"
@@ -178,17 +180,7 @@ const InvoiceForm = ({ user }) => {
         </Flex>
         {/* //TODO: Add the right side */}
         {/* Right side */}
-        <Flex
-          className="right-side"
-          gap="4"
-          style={{
-            marginTop: "60px",
-            width: "600px",
-            height: "600px",
-            background: "#262626",
-          }}
-          px="3"
-        ></Flex>
+        <InvoicePreview></InvoicePreview>
       </Flex>
     </>
   );
