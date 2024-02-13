@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-pattern */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import React from "react";
 import {
   Heading,
@@ -10,6 +13,7 @@ import {
   Popover,
   TextField,
 } from "@radix-ui/themes";
+import Confirm from "../assets/confirm.png";
 
 const Confirmation = ({}) => {
   const handleNextClick = () => {
@@ -23,11 +27,7 @@ const Confirmation = ({}) => {
     <>
       {/* //////////////////////////////////////////////// */}
       {/* Question 5 */}
-      <img
-        src="https://s3-alpha-sig.figma.com/img/2dd1/3068/39b34bcafd060686d1a1aa4b1e673653?Expires=1701648000&Signature=p7yi-2BdKJs4Lgig2mfExCmoJo-qkXkfz0Bjr5L0uykGnH8RGbpvCtXoQxiyf7jzGq7ptssfiKsQMNWHX0j8khk-fqsjmMMSaCE33-3rLmm1IussOz9d54kCVrRu7dHMJz9EZ8cG~s-RkvhVOs-cvye5q6MzLk5saxR2uM1EMfrp1DIuSRn49ZdwVRutc1exNNLhC~kQ2O0oUFup19PJA9zgETENAc6hBLdKR4JML4wO5sT5p7KJiPxfKYg8VsmO86b38-rmAX7Evn4KjR7NvrEAGj1c6~f8BI9jPoQxtjihHeSF~htR-3EoK1UkzZu3GzfcuQxecAs6aGiyo76avg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-        height={80}
-        width={80}
-      ></img>
+      <img src={Confirm} height={80} width={80}></img>
       <Flex
         direction="column"
         gap={{
