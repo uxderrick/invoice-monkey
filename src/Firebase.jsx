@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -10,7 +11,8 @@ import { getFirestore } from "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  // apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyCOwadFIXyThLpT-8GZiUtHr6ORoZHYS-A",
   authDomain: "invoice-monkey-ux.firebaseapp.com",
   projectId: "invoice-monkey-ux",
   storageBucket: "invoice-monkey-ux.appspot.com",
@@ -35,6 +37,7 @@ export const signInWithGoogle = () => {
     .then((result) => {
       // console.log(result.user);
       window.localStorage.setItem("token", result.user.accessToken);
+      // console.log(import.meta.env.VITE_FIREBASE_API_KEY);
     })
     .catch((error) => {
       console.log(error);

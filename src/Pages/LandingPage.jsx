@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { Heading, Text, Flex, Box, Button } from "@radix-ui/themes";
 import React from "react";
 import { signInWithGoogle, useAuth } from "../Firebase";
+import Logo from "../assets/logo.svg";
 
 const LandingPage = () => {
   //
@@ -16,11 +18,7 @@ const LandingPage = () => {
         >
           <Flex direction="column" gap="5" align={"center"}>
             {/* logo */}
-            <img
-              className="container"
-              src="https://s3-alpha-sig.figma.com/img/4526/e058/cad082685a014d18b93e42c167e74cba?Expires=1701648000&Signature=M9pvUTzca-hzOX~sXtt~302dtmA9VS-DvMEUeEZOIHKw2zAh0qdBdNAYfKwxctwygbsRWP62mRH3PGHyMYoxCJPEFGqne5aslG2VDU3gWdAXu3F1qfm5DRmkgBs2SqVqokfDD6ojcWhzZoAjGSu9JOaRY5z6xslRvpMbp8qR4rBlME~pUsoGpEXnSh63A2yglS5HVpwgy~csBNshTKKCrj2pfZ9rfoDOu5Rw9Ipa2SNJ0Ooj-nRXIuvQ7ksdtKrmIRPpyp6mB3j7tXd-h~nw0FqYuc5ajpFl5HsC~orpPfYekN9RTo4yakxsXw7v8XwrtT6wR3711YI-5JQ~Gskqmg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              height={160}
-            ></img>
+            <img className="container" src={Logo} height={120}></img>
 
             {/* Title block */}
             <Flex
@@ -83,7 +81,7 @@ const LandingPage = () => {
         <Flex>
           <img
             className="container"
-            src="https://s3-alpha-sig.figma.com/img/de70/6e5c/d24b42ff1bc9a104a8961438d21c1a1c?Expires=1701648000&Signature=efszUL9kw6yo3evtkCkasTrSrlmXaJZctwbXIYR6nH-E6Z4IjoYBgwfbS-m01YdYVyIgXtDQK5F6s1DJrnENGm3JZ~pMHsG3Fz2GBBgeRBty-y7X7QF~T25uDduWtnAtqW1alTc2jaFXoB62pkPBXql9Y6LDeDQKXE6WCYl7BchRqyeQa2m00yA8XR1viQEkm3o46KveUWL8EF4w-6SPt81VJH3soD0Sn3XTN7aq39J14gHot7QksPWlDJlbNgpzl5atgFZhPP9FMz51YhylkaPQUEN4AxI8GHweNfOkfi71IQmbuGcLzCwwqPiKvVLYOmB3HhNRkQAA4~lMMKstXw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            src="https://images.unsplash.com/photo-1632401602944-dfb6de917f07?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             // height={120}
 
             style={{
@@ -98,7 +96,7 @@ const LandingPage = () => {
           ></img>
         </Flex>
       </Box>
-      <Flex justify="center">
+      {/* <Flex justify="center">
         <Text
           size="3"
           align="center"
@@ -109,7 +107,7 @@ const LandingPage = () => {
         >
           <a href="">Contribute on GitHub</a>
         </Text>
-      </Flex>
+      </Flex> */}
     </>
   );
 };

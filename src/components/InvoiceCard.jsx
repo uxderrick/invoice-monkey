@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import {
   Heading,
@@ -9,6 +10,7 @@ import {
   Separator,
 } from "@radix-ui/themes";
 import { EyeOpenIcon, Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
+import File from "../assets/file.png";
 
 const InvoiceCard = () => {
   return (
@@ -19,10 +21,7 @@ const InvoiceCard = () => {
       direction="column"
       gap="4"
     >
-      <img
-        src="https://s3-alpha-sig.figma.com/img/2a57/33d3/2fdb7accd73fd8f8f053444748a375b0?Expires=1701648000&Signature=dvBr9Y9D4lyv-wqk2jIHkCkUbCQen~tSfqldJYdLDor8DaQ7irrLztvVIJw6tUIvmrzI~yr0jEvZiYffeB3Y-6AuAxJgoskSMH8G1A8hGOu~4iOeItvl7SCqFGHM8Kqmp1yFuXojJZYDQKbdVS0SdYYkYS1bqNa0kixIlBU4MgK8lzc0MKcxhKfFKQ4D-nhd8tTfag94y3rcnkmjZ2mk6EGmzFfvuPJEoTmFt4s4KJ7DHaeM02skQeHMvxPY9aGBGn8ZGmUe90vFhV~YCIFEsSfBWtyyMaSDkYKfrHkYK~cEVsiFF8ekyc7X6AhTP8KFEpXvvYqdghSxjHrZ6kaltQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-        height={40}
-      ></img>
+      <img src={File} height={40}></img>
       <Flex direction="column" gap="1">
         <Text
           align="left"
