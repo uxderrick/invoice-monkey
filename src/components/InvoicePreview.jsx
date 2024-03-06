@@ -12,7 +12,24 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
-const InvoicePreview = () => {
+//get surrent date
+const today = new Date();
+const date = `${today.getDate()}/${
+  today.getMonth() + 1
+}/${today.getFullYear()}`;
+
+const userName = localStorage.getItem("user");
+
+const InvoicePreview = ({
+  name,
+  email,
+  date,
+  itemName,
+  itemDescription,
+  quantity,
+  cost,
+  note,
+}) => {
   return (
     <>
       <Flex
@@ -73,21 +90,40 @@ const InvoicePreview = () => {
           <Flex direction="column" gap={"2"}>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">FROM</Text>
-              <Text className="value">Derrick Tsorme</Text>
+              <Text className="value">
+                {userName ? userName : "Enter your name"}
+              </Text>
             </Flex>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">TO</Text>
-              <Text className="value">Kofi Asamoah (kas@gmail.com)</Text>
+              <Text className="value">
+                {name ? name : "Enter client's name"}{" "}
+                {email ? `(${email})` : "(client@gmail.com)"}
+              </Text>
             </Flex>
           </Flex>
           <Flex direction="column" gap={"2"} align={"end"}>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">SENT ON</Text>
-              <Text className="value">20th September, 2023</Text>
+              <Text className="value">
+                {today.getDate() +
+                  "/" +
+                  (today.getMonth() + 1) +
+                  "/" +
+                  today.getFullYear()}
+              </Text>
             </Flex>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">DUE ON</Text>
-              <Text className="value">20th September, 2023</Text>
+              <Text className="value">
+                {date
+                  ? date
+                  : today.getDate() +
+                    "/" +
+                    today.getMonth() +
+                    "/" +
+                    today.getFullYear()}
+              </Text>
             </Flex>
           </Flex>
         </Flex>
@@ -125,15 +161,19 @@ const InvoicePreview = () => {
               >
                 <Text className="label">ITEM</Text>
                 <Text className="value" align={"left"}>
-                  MacBook 13”
+                  {itemName ? itemName : "Enter item name"}
                 </Text>
                 <Text className="description" align={"left"}>
-                  Part Payment for the item we bought
+                  {itemDescription ? itemDescription : "Enter item description"}
                 </Text>
               </Flex>
-              <Flex direction={"column"} gap={"2"} align={"start"}>
+              <Flex direction={"column"} gap={"2"} align={"end"}>
                 <Text className="label">QTY</Text>
-                <Text className="value">1</Text>
+                <Text className="s-total">
+                  {quantity
+                    ? quantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "Enter quantity"}
+                </Text>
               </Flex>
               <Flex
                 direction={"column"}
@@ -144,7 +184,11 @@ const InvoicePreview = () => {
                 }}
               >
                 <Text className="label">COST (GHS)</Text>
-                <Text className="s-total">67,000.00</Text>
+                <Text className="value">
+                  {cost
+                    ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "Enter cost"}
+                </Text>
               </Flex>
             </Flex>
           </Flex>
@@ -161,7 +205,9 @@ const InvoicePreview = () => {
             }}
           >
             <Text className="label">NOTE</Text>
-            <Text size={"2"}>Before implementing any of these methods</Text>
+            <Text size={"2"}>
+              {note ? note : "Enter any additional information here"}
+            </Text>
           </Flex>
         </Flex>
       </Flex>

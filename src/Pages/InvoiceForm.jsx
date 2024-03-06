@@ -144,8 +144,8 @@ const InvoiceForm = ({ user }) => {
     } else {
       return (
         <Question1
-          customerName={name}
-          customerEmail={email}
+          updatedName={name}
+          updatedEmail={email}
           onQuestion1NextClick={handleQuestion1NextClick}
           updateCustomerInfo={updateCustomerInfo}
         ></Question1>
@@ -182,7 +182,16 @@ const InvoiceForm = ({ user }) => {
         </Flex>
         {/* //TODO: Add the right side */}
         {/* Right side */}
-        <InvoicePreview></InvoicePreview>
+        <InvoicePreview
+          name={name}
+          email={email}
+          date={date}
+          itemName={itemName}
+          itemDescription={itemDescription}
+          quantity={quantity}
+          cost={cost}
+          note={note}
+        ></InvoicePreview>
       </Flex>
     </>
   );

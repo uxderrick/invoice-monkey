@@ -10,15 +10,16 @@ import {
   Popover,
   TextField,
 } from "@radix-ui/themes";
+import { useState } from "react";
 
 const Question1 = ({
-  customerName,
-  customerEmail,
-  onQuestion1NextClick,
+  updatedName,
+  updatedEmail,
   updateCustomerInfo,
+  onQuestion1NextClick,
 }) => {
-  const [name, setName] = React.useState(customerName || "");
-  const [email, setEmail] = React.useState(customerEmail || "");
+  const [name, setName] = useState(updatedName || "");
+  const [email, setEmail] = useState(updatedEmail || "");
 
   const handleNextClick = () => {
     // Call the function passed as a prop to update the state in InvoiceForm
@@ -97,7 +98,7 @@ const Question1 = ({
           className="question-field"
           onChange={(event) => {
             setEmail(event.target.value);
-            console.log(event.target.value);
+            // console.log(event.target.value);
           }}
         />
 
