@@ -115,7 +115,15 @@ const InvoicePreview = ({
             </Flex>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">DUE ON</Text>
-              <Text className="value">{date ? date : "20/09/2023"}</Text>
+              <Text className="value">
+                {date
+                  ? date
+                  : today.getDate() +
+                    "/" +
+                    today.getMonth() +
+                    "/" +
+                    today.getFullYear()}
+              </Text>
             </Flex>
           </Flex>
         </Flex>
@@ -159,7 +167,7 @@ const InvoicePreview = ({
                   {itemDescription ? itemDescription : "Enter item description"}
                 </Text>
               </Flex>
-              <Flex direction={"column"} gap={"2"} align={"start"}>
+              <Flex direction={"column"} gap={"2"} align={"end"}>
                 <Text className="label">QTY</Text>
                 <Text className="s-total">
                   {quantity
