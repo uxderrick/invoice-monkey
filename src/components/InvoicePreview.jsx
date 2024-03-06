@@ -162,7 +162,9 @@ const InvoicePreview = ({
               <Flex direction={"column"} gap={"2"} align={"start"}>
                 <Text className="label">QTY</Text>
                 <Text className="s-total">
-                  {quantity ? quantity : "Enter quantity"}
+                  {quantity
+                    ? quantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "Enter quantity"}
                 </Text>
               </Flex>
               <Flex
@@ -174,7 +176,11 @@ const InvoicePreview = ({
                 }}
               >
                 <Text className="label">COST (GHS)</Text>
-                <Text className="value">{cost ? cost : "Enter cost"}</Text>
+                <Text className="value">
+                  {cost
+                    ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "Enter cost"}
+                </Text>
               </Flex>
             </Flex>
           </Flex>
