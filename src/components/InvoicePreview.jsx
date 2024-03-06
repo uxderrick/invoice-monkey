@@ -161,7 +161,7 @@ const InvoicePreview = ({
               </Flex>
               <Flex direction={"column"} gap={"2"} align={"start"}>
                 <Text className="label">QTY</Text>
-                <Text className="value">
+                <Text className="s-total">
                   {quantity ? quantity : "Enter quantity"}
                 </Text>
               </Flex>
@@ -174,7 +174,7 @@ const InvoicePreview = ({
                 }}
               >
                 <Text className="label">COST (GHS)</Text>
-                <Text className="s-total">{cost ? cost : "Enter cost"}</Text>
+                <Text className="value">{cost ? cost : "Enter cost"}</Text>
               </Flex>
             </Flex>
           </Flex>
