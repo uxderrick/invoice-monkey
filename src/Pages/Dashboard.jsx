@@ -17,6 +17,8 @@ import NavBar from "../components/NavBar";
 
 const Dashboard = ({ user }) => {
   document.body.style.padding = "0 16px 0 16px";
+  //store user name in local storage
+  localStorage.setItem("user", user.displayName);
 
   return (
     <>

@@ -18,6 +18,8 @@ const date = `${today.getDate()}/${
   today.getMonth() + 1
 }/${today.getFullYear()}`;
 
+const userName = localStorage.getItem("user");
+
 const InvoicePreview = ({
   name,
   email,
@@ -88,7 +90,9 @@ const InvoicePreview = ({
           <Flex direction="column" gap={"2"}>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">FROM</Text>
-              <Text className="value">Derrick Tsorme</Text>
+              <Text className="value">
+                {userName ? userName : "Enter your name"}
+              </Text>
             </Flex>
             <Flex direction={"row"} gap={"2"} align={"center"}>
               <Text className="label">TO</Text>
