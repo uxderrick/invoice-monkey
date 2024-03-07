@@ -19,6 +19,7 @@ const date = `${today.getDate()}/${
 }/${today.getFullYear()}`;
 
 const userName = localStorage.getItem("user");
+const invoiceNumber = localStorage.getItem("invoiceNumber");
 
 const InvoicePreview = ({
   name,
@@ -41,6 +42,7 @@ const InvoicePreview = ({
           height: "600px",
           background: "#ffffff",
           borderRadius: "8px ",
+          fontFamily: "Inter",
         }}
         px="5"
         py="5"
@@ -64,7 +66,7 @@ const InvoicePreview = ({
               fontSize: "14px",
             }}
           >
-            Invoice 0001
+            Invoice GHA000{invoiceNumber ? parseInt(invoiceNumber) + 1 : null}
           </Text>
         </Flex>
         <Separator

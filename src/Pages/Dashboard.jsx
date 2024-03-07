@@ -23,6 +23,10 @@ const Dashboard = ({ user }) => {
 
   document.body.style.padding = "0 16px 0 16px";
 
+  //store invoice number in local storage
+  const currentNumberOfInvoices = invoices.length;
+  localStorage.setItem("invoiceNumber", currentNumberOfInvoices);
+
   //add total received
   useEffect(() => {
     let total = 0;
@@ -181,6 +185,12 @@ const Dashboard = ({ user }) => {
                   invoiceID={invoice.name}
                   date={invoice.date}
                   amount={invoice.cost}
+                  itemName={invoice.itemName}
+                  itemDescription={invoice.itemDescription}
+                  quantity={invoice.quantity}
+                  note={invoice.note}
+                  name={invoice.name}
+                  email={invoice.email}
                   key={Math.random()}
                 />
               );

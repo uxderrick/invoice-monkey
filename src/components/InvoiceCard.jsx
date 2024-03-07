@@ -14,7 +14,17 @@ import File from "../assets/file.png";
 import * as Dialog from "@radix-ui/react-dialog";
 import InvoicePreview from "./InvoicePreview";
 
-const InvoiceCard = ({ invoiceID, date, amount }) => {
+const InvoiceCard = ({
+  invoiceID,
+  date,
+  amount,
+  itemName,
+  itemDescription,
+  quantity,
+  note,
+  name,
+  email,
+}) => {
   return (
     <Flex
       className="invoice"
@@ -107,7 +117,16 @@ const InvoiceCard = ({ invoiceID, date, amount }) => {
                 padding: "12px",
               }}
             >
-              <InvoicePreview />
+              <InvoicePreview
+                name={name}
+                email={email}
+                date={date}
+                itemName={itemName}
+                itemDescription={itemDescription}
+                quantity={quantity}
+                cost={amount}
+                note={note}
+              />
               <Flex gap="3" mt="4" justify="end"></Flex>
             </Dialog.Content>
           </Dialog.Portal>
