@@ -21,6 +21,8 @@ const Dashboard = ({ user }) => {
   const [invoices, setInvoices] = useState([]);
   const [totalReceived, setTotalReceived] = useState(0);
 
+  document.body.style.padding = "0 16px 0 16px";
+
   //add total received
   useEffect(() => {
     let total = 0;

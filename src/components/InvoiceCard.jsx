@@ -11,6 +11,8 @@ import {
 } from "@radix-ui/themes";
 import { EyeOpenIcon, Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 import File from "../assets/file.png";
+import * as Dialog from "@radix-ui/react-dialog";
+import InvoicePreview from "./InvoicePreview";
 
 const InvoiceCard = ({ invoiceID, date, amount }) => {
   return (
@@ -60,13 +62,56 @@ const InvoiceCard = ({ invoiceID, date, amount }) => {
           GHS {amount ? amount : null}
         </Text>
       </Flex>
+
+      {/* <Flex className="invoice-icons" justify="center" align="center">
+        <EyeOpenIcon
+          height={20}
+          width={20}
+          color="green"
+          className="icon"
+          onClick={() => {
+            console.log("View invoice");
+          }}
+        />
+      </Flex> */}
+
       <Flex direction="row" gap="4">
-        <Flex className="invoice-icons" justify="center" align="center">
-          <EyeOpenIcon height={20} width={20} color="green" className="icon" />
-        </Flex>
-        {/* <Flex className="invoice-icons" justify="center" align="center">
-          <Pencil2Icon height={20} width={20} color="green" className="icon" />
-        </Flex>{" "} */}
+        <Dialog.Root modal={"true"}>
+          <Dialog.Trigger
+            style={{
+              border: "none",
+              background: "none",
+              padding: "0",
+            }}
+          >
+            <Flex className="invoice-icons" justify="center" align="center">
+              <EyeOpenIcon
+                height={20}
+                width={20}
+                color="green"
+                className="icon"
+                onClick={() => {
+                  console.log("View invoice");
+                }}
+              />
+            </Flex>
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay className="DialogOverlay" />
+            <Dialog.Content
+              align={"center"}
+              className="DialogContent"
+              style={{
+                // minWidth: "40vw",
+                // maxWidth: "90vw",
+                padding: "12px",
+              }}
+            >
+              <InvoicePreview />
+              <Flex gap="3" mt="4" justify="end"></Flex>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
         <Flex className="invoice-icons" justify="center" align="center">
           <TrashIcon height={20} width={20} color="red" className="icon" />
         </Flex>

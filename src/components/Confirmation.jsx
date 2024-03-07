@@ -10,7 +10,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 import Confirm from "../assets/confirm.png";

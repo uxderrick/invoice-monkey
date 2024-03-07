@@ -9,7 +9,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 import { useState } from "react";
@@ -212,16 +212,22 @@ const InvoiceForm = ({ user }) => {
         </Flex>
         {/* //TODO: Add the right side */}
         {/* Right side */}
-        <InvoicePreview
-          name={name}
-          email={email}
-          date={date}
-          itemName={itemName}
-          itemDescription={itemDescription}
-          quantity={quantity}
-          cost={cost}
-          note={note}
-        ></InvoicePreview>
+        <Flex
+          style={{
+            marginTop: "60px",
+          }}
+        >
+          <InvoicePreview
+            name={name}
+            email={email}
+            date={date}
+            itemName={itemName}
+            itemDescription={itemDescription}
+            quantity={quantity}
+            cost={cost}
+            note={note}
+          ></InvoicePreview>
+        </Flex>
       </Flex>
     </>
   );

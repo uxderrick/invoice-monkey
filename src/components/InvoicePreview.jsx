@@ -8,7 +8,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 
@@ -36,7 +36,7 @@ const InvoicePreview = ({
         className="right-side"
         direction={"column"}
         style={{
-          marginTop: "60px",
+          // marginTop: "60px",
           width: "600px",
           height: "600px",
           background: "#ffffff",

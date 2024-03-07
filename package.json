@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-Dialog": "^1.0.7",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/themes": "^2.0.1",
     "dotenv": "^16.3.1",
