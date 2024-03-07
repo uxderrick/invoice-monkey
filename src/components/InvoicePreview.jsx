@@ -12,7 +12,7 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
-//get surrent date
+//get current date
 const today = new Date();
 const date = `${today.getDate()}/${
   today.getMonth() + 1

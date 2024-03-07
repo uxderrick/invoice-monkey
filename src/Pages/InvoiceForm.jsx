@@ -20,6 +20,8 @@ import Question4 from "../components/Question4";
 import NavBar from "../components/NavBar";
 import Confirmation from "../components/Confirmation";
 import InvoicePreview from "../components/InvoicePreview";
+import { db } from "../Firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 const InvoiceForm = ({ user }) => {
   const [date, setDate] = useState("");
@@ -34,6 +36,34 @@ const InvoiceForm = ({ user }) => {
   const [goToQuestion3, setGoToQuestion3] = useState(false);
   const [goToQuestion4, setGoToQuestion4] = useState(false);
   const [goToConfirmation, setGoToConfirmation] = useState(false);
+
+  //add a new document with a generated id in firestore
+  const addInvoice = async () => {
+    const docRef = doc(
+      db,
+      "invoices",
+      //Generate a unique id for the invoice using timestamp
+      `${Date.now()}`
+    );
+    const payload = {
+      date: date,
+      name: name,
+      email: email,
+      itemName: itemName,
+      itemDescription: itemDescription,
+      quantity: quantity,
+      cost: cost,
+      note: note,
+    };
+
+    await setDoc(docRef, payload);
+  };
+
+  useEffect(() => {
+    if (goToConfirmation) {
+      addInvoice();
+    }
+  }, [goToConfirmation]);
 
   //Question 1 logic
   const updateCustomerInfo = (updatedName, updatedEmail) => {

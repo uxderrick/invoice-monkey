@@ -12,7 +12,7 @@ import {
 import { EyeOpenIcon, Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 import File from "../assets/file.png";
 
-const InvoiceCard = () => {
+const InvoiceCard = ({ invoiceID, date, amount }) => {
   return (
     <Flex
       className="invoice"
@@ -37,7 +37,7 @@ const InvoiceCard = () => {
             xl: 5,
           }}
         >
-          Invoice 0001
+          {invoiceID ? invoiceID : null}
         </Text>
         <Text
           className="invoice-desc"
@@ -47,7 +47,7 @@ const InvoiceCard = () => {
           }}
           size="3"
         >
-          Due 20th Sept
+          {date ? date : null}
         </Text>
         <Text
           className="invoice-desc"
@@ -57,16 +57,16 @@ const InvoiceCard = () => {
           }}
           size="3"
         >
-          GHS 500.00
+          GHS {amount ? amount : null}
         </Text>
       </Flex>
       <Flex direction="row" gap="4">
         <Flex className="invoice-icons" justify="center" align="center">
           <EyeOpenIcon height={20} width={20} color="green" className="icon" />
         </Flex>
-        <Flex className="invoice-icons" justify="center" align="center">
+        {/* <Flex className="invoice-icons" justify="center" align="center">
           <Pencil2Icon height={20} width={20} color="green" className="icon" />
-        </Flex>{" "}
+        </Flex>{" "} */}
         <Flex className="invoice-icons" justify="center" align="center">
           <TrashIcon height={20} width={20} color="red" className="icon" />
         </Flex>
