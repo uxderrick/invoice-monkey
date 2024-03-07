@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Heading,
   Text,
@@ -14,11 +14,48 @@ import { signOutWithGoogle } from "../Firebase";
 import CreateInvoice from "../components/CreateInvoice";
 import InvoiceCard from "../components/InvoiceCard";
 import NavBar from "../components/NavBar";
+import { db } from "../Firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const Dashboard = ({ user }) => {
+  const [invoices, setInvoices] = useState([]);
+  const [totalReceived, setTotalReceived] = useState(0);
+
   document.body.style.padding = "0 16px 0 16px";
+
+  //store invoice number in local storage
+  const currentNumberOfInvoices = invoices.length;
+  localStorage.setItem("invoiceNumber", currentNumberOfInvoices);
+
+  //add total received
+  useEffect(() => {
+    let total = 0;
+    invoices.forEach((invoice) => {
+      total += parseFloat(invoice.cost);
+    });
+    setTotalReceived(total);
+  }, [invoices]);
+
+  // document.body.style.padding = "0 16px 0 16px";
   //store user name in local storage
   localStorage.setItem("user", user.displayName);
+
+  //retrieve data fom firestore
+  useEffect(() => {
+    // Retrieve data from firestore
+    const getInvoices = async () => {
+      const q = query(collection(db, "invoices"));
+      const querySnapshot = await getDocs(q);
+      const fetchedInvoices = [];
+      querySnapshot.forEach((doc) => {
+        fetchedInvoices.push(doc.data());
+      });
+      setInvoices(fetchedInvoices);
+      // console.log(fetchedInvoices);
+    };
+
+    getInvoices();
+  }, []);
 
   return (
     <>
@@ -86,10 +123,10 @@ const Dashboard = ({ user }) => {
                 xl: 8,
               }}
             >
-              GHS 67,000.00
+              GHS {totalReceived.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
             </Text>
           </Flex>
-          <Flex direction="column" align="start" className="card">
+          {/* <Flex direction="column" align="start" className="card">
             <Text className="card-title" align="left">
               Total Pending
             </Text>
@@ -104,9 +141,9 @@ const Dashboard = ({ user }) => {
                 xl: 8,
               }}
             >
-              GHS 67,000.00
+              GHS {totalPending}
             </Text>
-          </Flex>
+          </Flex> */}
           <Flex direction="column" align="start" className="card">
             <Text className="card-title" align="left">
               Number of customers
@@ -122,7 +159,7 @@ const Dashboard = ({ user }) => {
                 xl: 8,
               }}
             >
-              5
+              {invoices.length}
             </Text>
           </Flex>
         </Flex>
@@ -138,12 +175,26 @@ const Dashboard = ({ user }) => {
         />
         <Flex wrap="wrap" direction="row" gap="5">
           <CreateInvoice />
-          <InvoiceCard />
-          <InvoiceCard />
-          <InvoiceCard />
-          <InvoiceCard />
-          <InvoiceCard />
-          <InvoiceCard />
+
+          {invoices
+            .slice()
+            .reverse()
+            .map((invoice) => {
+              return (
+                <InvoiceCard
+                  invoiceID={invoice.name}
+                  date={invoice.date}
+                  amount={invoice.cost}
+                  itemName={invoice.itemName}
+                  itemDescription={invoice.itemDescription}
+                  quantity={invoice.quantity}
+                  note={invoice.note}
+                  name={invoice.name}
+                  email={invoice.email}
+                  key={Math.random()}
+                />
+              );
+            })}
         </Flex>
       </Flex>
     </>

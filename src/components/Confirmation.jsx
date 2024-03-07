@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Heading,
   Text,
@@ -10,7 +10,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 import Confirm from "../assets/confirm.png";
@@ -18,7 +18,7 @@ import Confirm from "../assets/confirm.png";
 const Confirmation = ({}) => {
   const handleNextClick = () => {
     // Call the function passed as a prop to update the state in InvoiceForm
-
+    //send as email function
     // Call the original onConfirmationNextClick function
     onConfirmationNextClick();
   };
@@ -49,7 +49,7 @@ const Confirmation = ({}) => {
           weight="medium"
           align="left"
         >
-          Invoice generated
+          Invoice created
         </Text>
         <Text
           className="question"

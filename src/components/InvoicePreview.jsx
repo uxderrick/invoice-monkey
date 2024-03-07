@@ -8,17 +8,18 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 
-//get surrent date
+//get current date
 const today = new Date();
 const date = `${today.getDate()}/${
   today.getMonth() + 1
 }/${today.getFullYear()}`;
 
 const userName = localStorage.getItem("user");
+const invoiceNumber = localStorage.getItem("invoiceNumber");
 
 const InvoicePreview = ({
   name,
@@ -36,11 +37,12 @@ const InvoicePreview = ({
         className="right-side"
         direction={"column"}
         style={{
-          marginTop: "60px",
+          // marginTop: "60px",
           width: "600px",
           height: "600px",
           background: "#ffffff",
           borderRadius: "8px ",
+          fontFamily: "Inter",
         }}
         px="5"
         py="5"
@@ -64,7 +66,7 @@ const InvoicePreview = ({
               fontSize: "14px",
             }}
           >
-            Invoice 0001
+            Invoice GHA000{invoiceNumber ? parseInt(invoiceNumber) + 1 : null}
           </Text>
         </Flex>
         <Separator

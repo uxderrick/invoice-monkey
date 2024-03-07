@@ -9,7 +9,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
 } from "@radix-ui/themes";
 import Calendar from "react-calendar";
@@ -98,8 +98,8 @@ const Question2 = ({
             }}
           ></TextField.Input>
 
-          <Popover.Root>
-            <Popover.Trigger>
+          <Dialog.Root>
+            <Dialog.Trigger>
               <TextField.Slot>
                 <CalendarIcon
                   height="24"
@@ -113,8 +113,8 @@ const Question2 = ({
                   }}
                 />
               </TextField.Slot>
-            </Popover.Trigger>
-            <Popover.Content align="end" style={{ width: 360 }}>
+            </Dialog.Trigger>
+            <Dialog.Content align="end" style={{ width: 360 }}>
               <Flex gap="3">
                 <Calendar
                   onChange={(value) => {
@@ -132,8 +132,8 @@ const Question2 = ({
                   formatLongDate={(locale, date) => formatDateToDDMMYYYY(date)}
                 />
               </Flex>
-            </Popover.Content>
-          </Popover.Root>
+            </Dialog.Content>
+          </Dialog.Root>
         </TextField.Root>
 
         <Flex

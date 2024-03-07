@@ -9,7 +9,7 @@ import {
   Button,
   Avatar,
   Separator,
-  Popover,
+  Dialog,
   TextField,
   TextFieldSlot,
   TextFieldRoot,
