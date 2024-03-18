@@ -31,6 +31,8 @@ const InvoicePreview = ({
   cost,
   note,
 }) => {
+  const total = quantity * cost;
+
   return (
     <>
       <Flex
@@ -186,9 +188,9 @@ const InvoicePreview = ({
                 }}
               >
                 <Text className="label">COST (GHS)</Text>
-                <Text className="value">
+                <Text className="s-total">
                   {cost
-                    ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    ? total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                     : "Enter cost"}
                 </Text>
               </Flex>
