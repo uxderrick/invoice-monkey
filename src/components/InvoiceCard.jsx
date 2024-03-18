@@ -69,7 +69,7 @@ const InvoiceCard = ({
           }}
           size="3"
         >
-          GHS {amount ? amount : null}
+          GHS {amount ? amount * quantity : null}
         </Text>
       </Flex>
 

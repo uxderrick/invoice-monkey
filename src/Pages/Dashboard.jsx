@@ -31,7 +31,7 @@ const Dashboard = ({ user }) => {
   useEffect(() => {
     let total = 0;
     invoices.forEach((invoice) => {
-      total += parseFloat(invoice.cost);
+      total += parseFloat(invoice.cost * invoice.quantity);
     });
     setTotalReceived(total);
   }, [invoices]);
